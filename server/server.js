@@ -17,15 +17,18 @@ io.on('connection', (socket) => {
     console.log('Client disconnected');
   });
 
-
-  socket.emit('newMessage', {
-    from: 'julie@example.com',
-    text: 'Hello!!',
-    createdAt: 456
-  });
+  // socket.emit('newMessage', {
+  //   from: 'julie@example.com',
+  //   text: 'Hello!!',
+  //   createdAt: 456
+  // });
 
   socket.on('createMessage', (message) => {
-    console.log(message);
+    io.emit('newMessage', {
+      from: message.from,
+      text: message.text,
+      createdAt: new Date().getTime()
+    });
   });
 });
 
