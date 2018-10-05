@@ -39,3 +39,31 @@ $('#message-form').on('submit', function(e) {
     console.log();
   });
 });
+
+var locationButton = $('#send-location');
+locationButton.click(function() {
+  if(!navigator.geolocation) {
+      return alert('Geolocation not supported by your browser');
+  }
+
+  navigator.geolocation.getCurrentPosition((postion) => {
+    console.log(postion);
+    socket.emit('createLocationMessage', {
+      latitude: postion.coords.latitude,
+      longitude: postion.coords.longitude
+    });
+  }, (error) => {
+    alert('Unable to fetch location.');
+  });
+});
+
+socket.on('newLocationMessage', function(message) {
+  var li = $('<li></li>');
+  var a = $('<a target="_blank">My current Location</a>');
+
+  li.text(`${message.from}: `);
+  a.attr('href', message.url);
+  li.append(a);
+
+  $('#messages').append(li);
+});
