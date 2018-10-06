@@ -20,7 +20,7 @@ var io = socketIO(server);
 io.on('connection', (socket) => {
   console.log('New User Connected');
 
-  socket.emit('newMessage',  generateMessage('Admin', 'Welcome to the chat app'));
+  socket.emit('newMessage',  generateMessage('Admin', 'Welcome to the Chat room'));
 
   socket.broadcast.emit('newMessage', generateMessage('Admin', 'New User joined'));
 
