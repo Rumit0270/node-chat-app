@@ -2,70 +2,29 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Chat Room</title>
+    <title>Join | ChattApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" href="./css/styles.css"/>
   </head>
-  <body class="chat">
-
-    <div class="chat__sidebar">
-      <h3>People</h3>
-      <div id="users">
-
-      </div>
-    </div>
-
-    <div class="chat__main">
-      <ol id="messages" class="chat__messages"> </ol>
-
-      <div class="chat__footer">
-        <form id="message-form">
-            <input type="text" name="message" placeholder="Enter your message here!!" autofocus autocomplete="off"/>
-            <button>Send</button>
-        </form>
-        <button id="send-location">Send location</button>
-      </div>
-    </div>
-
-
-    <script id="message-template" type="text/template">
-        <li class="message">
-          <div class="message__title">
-            <h4> {{ from }}</h4>
-            <span> {{ createdAt }} </span>
-          </div>
-
-          <div class="message__body">
-            <p> {{ text }} </p>
-          </div>
-
-        </li>
-    </script>
-
-
-    <script type="text/template" id="location-message-template">
-      <li class="message">
-        <div class="message__title">
-          <h4> {{ from }}</h4>
-          <span> {{ createdAt }} </span>
+  <body class="centered-form">
+    <div class="centered-form__form">
+      <form class="" action="/chat.html">
+        <div class="form-field">
+          <h3>Join a Chat</h3>
         </div>
-
-        <div class="message__body">
-          <a href="{{ url }}" target="_blank"> My location </a>
+        <div class="form-field">
+          <label for="name">Display Name</label>
+          <input type="text" name="name" value="" autofocus>
         </div>
+        <div class="form-field">
+          <label for="room">Room name</label>
+          <input type="text" name="room" value="">
+        </div>
+        <div class="form-field">
+          <button type="submit">Join</button>
+        </div>
+      </form>
 
-      </li>
-
-    </script>
-
-    <script type="text/javascript" src ="/socket.io/socket.io.js"></script>
-    <script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous">
-    </script>
-    <script type="text/javascript" src="./js/libs/moment.js"> </script>
-    <script type="text/javascript" src="./js/libs/mustache.js"> </script>
-    <script type="text/javascript" src="./js/index.js"> </script>
-
+    </div>
   </body>
-  </html>
+</html>
