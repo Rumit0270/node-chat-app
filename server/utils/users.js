@@ -28,6 +28,16 @@ class Users {
     var names = users.map((user) => user.name);
     return names;
   }
+
+  getNumberOfUsers(room) {
+    var num = 0;
+    this.users.forEach((user) => {
+      if (user.room === room) {
+        num++;
+      }
+    });
+    return num;
+  }
 }
 
 module.exports = {Users};

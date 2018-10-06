@@ -1,5 +1,13 @@
 var socket = io();
 
+function generateColor() {
+  var colors = ['red', 'blue', 'yellow', 'green', 'purple', 'chocolate', 'gold', 'indigo', 'olive', 'plum', 'tomato'];
+  var min = 0;
+  var max = colors.length;
+  var random =Math.floor(Math.random() * (+max - +min)) + +min;
+  return colors[random];
+}
+
 function scrollToBottom() {
   //selectors
   var messages =  $('#messages');
@@ -15,12 +23,13 @@ function scrollToBottom() {
   if(clientHeight + scrollTop + newMessageHeight + lastMessageHeight >= scrollHeight) {
     messages.scrollTop(scrollHeight);
   }
-
 }
 
 socket.on('connect', function() {
   console.log('Connected to server');
   var params = $.deparam(window.location.search);
+  // make room case insensitive
+  params.room = params.room.toLowerCase();
   socket.emit('join', params, function(error) {
     if (error) {
       alert(error);
@@ -42,7 +51,8 @@ socket.on('newMessage', function(newMessage) {
   var html = Mustache.render(template, {
     from: newMessage.from,
     text: newMessage.text,
-    createdAt: formattedTime
+    createdAt: formattedTime,
+    color: generateColor()
   });
   $('#messages').append(html);
   scrollToBottom();

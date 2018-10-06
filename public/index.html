@@ -1,30 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Join | ChatApp</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="./css/styles.css"/>
-  </head>
-  <body class="centered-form">
-    <div class="centered-form__form">
-      <form class="" action="/chat.html">
-        <div class="form-field">
-          <h3>Join a Chat</h3>
-        </div>
-        <div class="form-field">
-          <label for="name">Display Name</label>
-          <input type="text" name="name" value="" autofocus>
-        </div>
-        <div class="form-field">
-          <label for="room">Room name</label>
-          <input type="text" name="room" value="">
-        </div>
-        <div class="form-field">
-          <button type="submit">Join</button>
-        </div>
-      </form>
 
-    </div>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Join | ChatApp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body class="centered-form">
+  <div class="centered-form__form">
+    <form class="" action="/chat.html">
+      <div class="form-field">
+        <h3>Join a Chat</h3>
+      </div>
+      <div class="form-field">
+        <label for="name">Display Name:</label>
+        <input type="text" name="name" value="" autofocus>
+      </div>
+      <div class="form-field">
+        <label for="room">Room name:</label>
+        <input type="text" name="room" value="" id="chatRoomInput">
+      </div>
+      <div class="form-field" id="selectActiveRoom">
+        <label for="activeRooms">Active Rooms:</label>
+      </div>
+      <div class="form-field">
+        <button type="submit">Join</button>
+      </div>
+    </form>
+
+  </div>
+
+  <script type="text/javascript" src ="/socket.io/socket.io.js"></script>
+  <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous">
+  </script>
+  <script type="text/javascript" src="./js/index.js"> </script>
+</body>
+
 </html>

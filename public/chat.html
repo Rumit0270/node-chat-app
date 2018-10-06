@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Chat | ChatApp</title>
-    <meta name="viewport" content="width:device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" href="./css/styles.css"/>
   </head>
   <body class="chat">
@@ -20,7 +20,7 @@
 
       <div class="chat__footer">
         <form id="message-form">
-            <input type="text" name="message" placeholder="Enter your message here!!" autofocus autocomplete="off"/>
+            <input type="text" name="message" placeholder="Enter your message here!!" autofocus autocomplete="off" />
             <button>Send</button>
         </form>
         <button id="send-location">Send location</button>
@@ -29,14 +29,14 @@
 
 
     <script id="message-template" type="text/template">
-        <li class="message">
+        <li class="message" style="color: {{ color }}">
           <div class="message__title">
             <h4> {{ from }}</h4>
             <span> {{ createdAt }} </span>
           </div>
 
           <div class="message__body">
-            <p> {{ text }} </p>
+            <p style="font-stye: tahoma;"> {{ text }} </p>
           </div>
 
         </li>
